@@ -1,0 +1,124 @@
+<h1>Contact us</h1>
+<form [formGroup]="contactForm" (ngSubmit)="sendForm()" novalidate>
+    <!-- Campo Nickname -->
+    <div class="form-group-row">
+        <label class="col-sm-1 col-form-label text-sm-left">Nick</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" formControlName="nickname" placeholder="Type your nick...">
+            <div *ngIf='nickname.invalid && (nickname.dirty || nickname.touched)'>
+                <div class="text-danger" *ngIf='nickname.errors.required'>
+                    Type your nick, please
+                </div>
+                <div class="text-danger" *ngIf='nickname.errors.minlength'>
+                    The nick must have 5 characters
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Campo Password -->
+    <div class="form-group-row">
+        <label class="col-sm-1 col-form-label text-sm-left">Password</label>
+        <div class="col-sm-12">
+            <input type="password" class="form-control" formControlName="password" placeholder="Type your password...">
+            <div *ngIf='password.invalid && (password.dirty || password.touched)'>
+                <div class="text-danger" *ngIf='password.errors.required'>
+                    Type your password, please
+                </div>
+                <div class="text-danger" *ngIf='password.errors.minlength'>
+                    The password must have 5 characters
+                </div>
+                <div class="text-danger" *ngIf='password.errors.pattern'>
+                    The password must have a valid format
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Campo Name -->
+    <div class="form-group-row">
+        <label class="col-sm-1 col-form-label text-sm-left">Nombre</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" formControlName="name" placeholder="Type your name...">
+            <div *ngIf='name.invalid && (name.dirty || name.touched)'>
+                <div class="text-danger" *ngIf='name.errors.required'>
+                    Type your name, please
+                </div>
+                <div class="text-danger" *ngIf='name.errors.minlength'>
+                    The name must have 5 characters
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Campo email -->
+    <div class="form-group-row">
+        <label class="col-sm-1 col-form-label text-sm-left">Email</label>
+        <div class="col-sm-12">
+            <input type="email" class="form-control" formControlName="email" placeholder="Type your email...">
+            <div *ngIf='email.invalid && (email.dirty || email.touched)'>
+                <div class="text-danger" *ngIf='email.errors.required'>
+                    Type your email, please
+                </div>
+                <div class="text-danger" *ngIf='email.errors.minlength'>
+                    The email must have 5 characters
+                </div>
+                <div class="text-danger" *ngIf='email.errors.pattern'>
+                    The email must have a valid format
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- Campo message -->
+     <div class="form-group-row">
+        <label class="col-sm-1 col-form-label text-sm-left">Message</label>
+        <div class="col-sm-12">
+            <textarea class="form-control" formControlName="message" placeholder="Type your message..."></textarea>
+            <div *ngIf='message.invalid && (message.dirty || message.touched)'>
+                <div class="text-danger" *ngIf='message.errors.required'>
+                    Type your message, please
+                </div>
+                <div class="text-danger" *ngIf='message.errors.minlength'>
+                    The message must have 5 characters
+                </div>
+                <div class="text-danger" *ngIf='message.errors.maxlength'>
+                    The message can´t have more than 100 characters
+                </div>
+            </div>
+        </div>
+    </div>   
+<!-- Campo Checkbox -->
+<div class="form-group-row">
+    <label class="col-sm-12 col-form-label text-sm-left">Terms & Conditions</label>
+    <label class="col-sm-2 col-form-label text-sm-left">
+        <input type="checkbox" formControlName="checkbox"> Accept it</label>
+        <div class="col-sm-4 text-danger" *ngIf="checkbox.errors?.required">
+            You must accept our T&C  
+        </div>
+</div>  
+<!-- Campo Dropdown -->
+<div class="form-group-row">
+    <label class="col-sm-12 col-form-label text-sm-left">City</label>
+    <select class="form-control mdb-select md-for" (change)="changeCity($event)" formControlName="cityName">
+        <option value="" disabled selecteds>Select your city</option>
+        <option *ngFor="let city of cities" [ngValue]="city">{{city}}</option>
+    </select>
+    <div *ngIf="cityName.invalid">
+        <div class="text-danger" *ngIf="cityName.errors?.required">   
+            Select your city
+        </div>
+    </div>
+</div>  
+<!-- Campo DatePicker -->
+<div class="form-group-row">
+    <label class="col-sm-12 col-form-label text-sm-left">Birthdate</label>
+    <input type="date" class="form-control" formControlName="birthDate">
+    <div class="text-danger" *ngIf="birthDate.errors?.required">
+        Tienes que ser mayor de edad
+     </div>
+</div>  
+
+    <!-- Submit button -->
+    <div class="form-group-row">
+        <div class="col-sm-12 text-right">
+            <button type="submit" class="btn btn-primary mt-3" [disabled]="contactForm.invalid">Enviar</button>
+        </div>
+    </div>
+</form>

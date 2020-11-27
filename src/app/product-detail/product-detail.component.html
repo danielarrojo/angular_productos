@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    {{producto?.desc}}
+  </div>
+  <div class="card-block p-3 text-center">
+    <img [src]="producto?.imageUrl" alt="">
+    <div>
+      Price: {{ producto?.price | currency:'EUR':'symbol' }}
+    </div>
+    <div>
+      Available since: {{ producto?.avail | date:'dd/MM/y' }}
+    </div>
+    <div>
+      <star-rating *ngIf="producto" [rating]="producto.rating"
+      (ratingCambiado)="cambiarRating($event)">
+      </star-rating>
+  </div>
+  <div>
+    <button type="button" class="btn btn-default" (click)="goBack()">
+      Volver
+    </button>
+  </div>
+</div>
+

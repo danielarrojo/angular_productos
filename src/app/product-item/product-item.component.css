@@ -1,0 +1,10 @@
+div:first-child img {
+  height: 40px;
+}
+
+
+
+.celda{
+  display:table-cell;
+  width:500px;
+}

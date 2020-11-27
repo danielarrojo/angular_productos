@@ -1,0 +1,12 @@
+<div class="celda">
+  <img [src]="producto.imageUrl" *ngIf="showImage" alt=""  [title]="producto.desc | uppercase">
+</div>
+<!--<div class="celda">{{ producto.desc }}</div>-->
+<div class="celda">
+   <a [routerLink]="['/products', producto.id]">{{producto.desc}}</a>
+</div>
+<div class="celda">{{ producto.price | currency:'EUR':'symbol' }}</div>
+<div class="celda">{{ producto.avail | date:'dd/MM/y' }}</div>
+<div class="celda"><star-rating [rating]="producto.rating"
+  (ratingCambiado)="cambiarRating($event)"></star-rating></div>
+
