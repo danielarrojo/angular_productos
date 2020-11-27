@@ -1,0 +1,12 @@
+{
+    "webTitle": "Dies ist meine fantastische Website",
+    "pepitoTitle": "Adolf",
+    "navbar": {
+        "welcome":"Wilkommen",
+        "product": "Produkte",
+        "contact": "Kontaktieren Sie uns"
+    },
+    "main": {
+        "welcomeWorks": "MEIN WILLKOMMEN ARBEITET !!!!"
+    }
+}

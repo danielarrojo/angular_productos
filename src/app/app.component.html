@@ -1,19 +1,31 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark mb-4">
-  <a class="navbar-brand" href="#">{{title}}</a>
+  <a class="navbar-brand" href="#">{{'pepitoTitle' | translate}}</a>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
       <a class="nav-link" [routerLink]="['/welcome']"
-      [routerLinkActive]="['active']">Welcome</a>
+      [routerLinkActive]="['active']">{{ 'navbar.welcome' | translate}}</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" [routerLink]="['/products']"
-      [routerLinkActive]="['active']">Products</a>
+      [routerLinkActive]="['active']">{{ 'navbar.products' | translate}}</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" [routerLink]="['/contact']"
-      [routerLinkActive]="['active']">Contact us</a>
+      [routerLinkActive]="['active']">{{ 'navbar.contact' | translate }}</a>
     </li>
   </ul>
+<button class="btn btn-default" (click)="changeLanguageToSpanish()">
+    <img src="./assets/imgs/spanish_flag.png" alt="Spanish Flag Icon" width="30">
+</button>
+<button class="btn btn-default" (click)="changeLanguageToEnglish()">
+  <img src="./assets/imgs/uk_flag.png" alt="English Flag Icon" width="30">
+</button>
+<button class="btn btn-default" (click)="changeLanguageToGerman()">
+  <img src="./assets/imgs/german_flag.png" alt="German Flag Icon" width="30">
+</button>
+<button class="btn btn-default" (click)="changeLanguageToKorean()">
+<img src="./assets/imgs/sk_flag.png" alt="South Korean Flag Icon" width="30">
+</button>
 </nav>
 <div class="container-fluid">
   <router-outlet></router-outlet>

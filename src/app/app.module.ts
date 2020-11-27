@@ -7,13 +7,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductFilterPipe } from './pipes/product-filter.pipe';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
-import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpBackend, HttpClient} from '@angular/common/http'
 import { BaseUrlInterceptor } from './interceptores/base-url.interceptor';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { RouterModule } from '@angular/router';
 import { APP_RUTAS } from './app.routes';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 
 @NgModule({
   declarations: [
@@ -31,7 +34,14 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(APP_RUTAS)
+    RouterModule.forRoot(APP_RUTAS),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader, 
+        deps: [HttpBackend],
+        useFactory: translateHttpLoaderFactory
+      }      
+    })
   ],
   providers: [
     {
@@ -43,3 +53,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function translateHttpLoaderFactory(httpBackend: HttpBackend): TranslateHttpLoader {
+    return new TranslateHttpLoader(new HttpClient(httpBackend));
+}

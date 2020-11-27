@@ -1,0 +1,12 @@
+{
+    "webTitle": "내 환상적인 웹 사이트입니다",
+    "pepitoTitle": "페피토",
+    "navbar": {
+        "welcome": "환영합니다",
+        "products": "제품",
+        "contact": "문의하기"
+    },
+    "main": {
+        "welcomeWorks": "내 환영 작품 !!!!"
+    }
+}

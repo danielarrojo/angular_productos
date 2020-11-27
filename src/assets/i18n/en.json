@@ -1,0 +1,13 @@
+{
+    "webTitle":"This is my fabulous web",
+    "pepitoTitle":"Little Joseph",
+    "navbar":{
+        "welcome":"Welcome",
+        "products":"Products",
+        "contact":"Contact us"
+    },
+    "main":{
+        "welcomeWorks":"MY WELCOME WORKS!!!!"
+    }
+}
+
