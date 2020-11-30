@@ -18,6 +18,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 
+import { ProductDetailGuard } from './guards/product-detail.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +46,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader'
     })
   ],
   providers: [
+      ProductDetailGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BaseUrlInterceptor,
